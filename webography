@@ -1,13 +1,114 @@
-<h2>Ransomware</h2>
-<table>
-  <tr>
-    <th>URL</th><td><a href="https://www.cisa.gov/ransomware">https://www.cisa.gov/ransomware</a></td>
-  </tr>
-  <tr>
-    <th>Site author</th><td>Cybersecurity and Infrastructure Security Agency (CISA)</td>
-  </tr>
-  <tr>
-    <th>Abstract</th><td>[Paste the 100–150 word abstract here]</td>
-  </tr>
-</table>
+import os
+import zipfile
 
+# Define base path for new project
+project_path = "/mnt/data/student_webography"
+os.makedirs(project_path, exist_ok=True)
+
+# HTML content for each file
+files_content = {
+    "project.html": """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Webography Project - Malware</title>
+</head>
+<body>
+  <h1>Your Name</h1>
+  <p>CSIT 100<br>
+  Webography Project<br>
+  Date: September 25, 2025</p>
+
+  <h2>Malware — Causes, Impacts, and Defenses</h2>
+
+  <h3>Subtopics</h3>
+  <ul>
+    <li><a href="subtopic1.html">Ransomware</a></li>
+    <li><a href="subtopic2.html">Botnets</a></li>
+    <li><a href="subtopic3.html">Malware Detection & Prevention</a></li>
+  </ul>
+
+  <h3>Other Files</h3>
+  <ul>
+    <li><a href="paper.doc">Paper (Word Document)</a></li>
+    <li><a href="presentation.ppt">Presentation (PowerPoint)</a></li>
+  </ul>
+</body>
+</html>""",
+    "subtopic1.html": """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ransomware</title>
+</head>
+<body>
+  <h1>Ransomware</h1>
+  <table border="1" cellpadding="8">
+    <tr><th>URL</th><td><a href="https://www.cisa.gov/ransomware" target="_blank">https://www.cisa.gov/ransomware</a></td></tr>
+    <tr><th>Site Author</th><td>Cybersecurity and Infrastructure Security Agency (CISA)</td></tr>
+    <tr><th>Abstract</th><td>Ransomware is a type of malicious software that encrypts a victim’s files or systems and demands payment (a ransom) to restore access. Attackers usually gain entry through phishing emails, insecure remote services, or outdated software. Once inside, ransomware can spread quickly across a network, encrypting shared drives and backups so victims cannot recover without paying or using backups. The impact is both technical (data loss, downtime) and financial (ransom amounts, recovery costs), as well as reputational damage. Organizations reduce risk by patching systems, using segmented networks, maintaining offline backups, enforcing strong access controls, and training employees to recognize phishing. Incident response plans and working with law enforcement are critical when an attack occurs.</td></tr>
+  </table><br>
+  <table border="1" cellpadding="8">
+    <tr><th>URL</th><td><a href="https://www.symantec.com/blogs/threat-intelligence/ransomware" target="_blank">https://www.symantec.com/blogs/threat-intelligence/ransomware</a></td></tr>
+    <tr><th>Site Author</th><td>Broadcom / Symantec Threat Intelligence Blog</td></tr>
+    <tr><th>Abstract</th><td>Ransomware families evolve constantly — attackers change encryption methods, distribution channels, and extortion tactics (for example, leaking stolen data publicly to pressure victims). Attackers commonly combine ransomware with prior reconnaissance and credential theft to maximize damage. Modern campaigns often target high-value organizations (healthcare, government, education) because they are likelier to pay. Preventive measures include endpoint protection, application allowlisting, regular offline backups, multi-factor authentication, and network segmentation. Detection relies on behavioral analytics (looking for patterns such as unusual file encryption activity). The blog explains both technical details and practical mitigation steps so students can understand how ransomware works and what organizations should do before, during, and after an incident.</td></tr>
+  </table>
+  <p><a href="project.html">Back to Webography</a></p>
+</body>
+</html>""",
+    "subtopic2.html": """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Botnets</title>
+</head>
+<body>
+  <h1>Botnets</h1>
+  <table border="1" cellpadding="8">
+    <tr><th>URL</th><td><a href="https://www.kaspersky.com/resource-center/threats/botnet" target="_blank">https://www.kaspersky.com/resource-center/threats/botnet</a></td></tr>
+    <tr><th>Site Author</th><td>Kaspersky Security Research & Analysis Center</td></tr>
+    <tr><th>Abstract</th><td>A botnet is a network of compromised computers (bots) controlled remotely by an attacker (botmaster). Devices join a botnet when users unknowingly install malware—often through phishing, vulnerabilities, or bundled downloads—allowing the attacker to run commands on many machines at once. Botnets are used for distributed denial-of-service (DDoS) attacks, sending spam, click fraud, and distributing other malware like ransomware. Because botnets hide control servers and use peer-to-peer or fast-flux techniques, they can be resilient and hard to take down. Defense includes keeping systems patched, using antivirus/endpoint detection, restricting unnecessary services, and monitoring for abnormal network traffic. Law enforcement and security companies sometimes collaborate to dismantle botnets by seizing command infrastructure.</td></tr>
+  </table><br>
+  <table border="1" cellpadding="8">
+    <tr><th>URL</th><td><a href="https://www.malwarebytes.com/resources/glossary/what-is-a-botnet/" target="_blank">https://www.malwarebytes.com/resources/glossary/what-is-a-botnet/</a></td></tr>
+    <tr><th>Site Author</th><td>Malwarebytes Labs</td></tr>
+    <tr><th>Abstract</th><td>Botnets operate by receiving commands from a central controller or through decentralized peer networks, letting attackers coordinate many machines to perform large-scale malicious tasks. Newer botnets adapt by using encrypted communications and hiding control mechanisms, which makes detection more difficult. Infected devices can belong to businesses, home users, IoT devices, or servers — so everyone is at risk. Practical prevention steps include removing unnecessary services (especially on IoT devices), changing default device passwords, applying updates, using reputable security software, and network monitoring for unusual outbound connections. The resource explains botnet types, typical attack patterns, and how users can reduce the chance their device becomes part of one.</td></tr>
+  </table>
+  <p><a href="project.html">Back to Webography</a></p>
+</body>
+</html>""",
+    "subtopic3.html": """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Malware Detection & Prevention</title>
+</head>
+<body>
+  <h1>Malware Detection & Prevention</h1>
+  <table border="1" cellpadding="8">
+    <tr><th>URL</th><td><a href="https://www.us-cert.cisa.gov/ncas/tips/ST18-271" target="_blank">https://www.us-cert.cisa.gov/ncas/tips/ST18-271</a></td></tr>
+    <tr><th>Site Author</th><td>CISA / US-CERT</td></tr>
+    <tr><th>Abstract</th><td>Malware detection and prevention combine technology, policy, and user education to lower infection risk and quickly identify compromises. Preventive measures emphasize software updates, strong authentication, limited user privileges, secure configurations, and reliable backups. Detection uses signature-based scanning (matching known malware), but modern approaches rely more on behavior-based and heuristic analysis, anomaly detection, and threat intelligence feeds to catch unknown variants. Network defenders use endpoint detection and response (EDR) tools, log analysis, and SIEM systems to correlate suspicious activity. Because signatures alone miss new threats, layered defenses — combining perimeter controls, endpoint protections, network monitoring, and user training — are the most effective strategy. Rapid response and having an incident plan improve recovery outcomes after detection.</td></tr>
+  </table><br>
+  <table border="1" cellpadding="8">
+    <tr><th>URL</th><td><a href="https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.7621.pdf" target="_blank">https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.7621.pdf</a></td></tr>
+    <tr><th>Site Author</th><td>NIST (National Institute of Standards and Technology)</td></tr>
+    <tr><th>Abstract</th><td>NIST guidance explains how organizations should design a layered program for malware prevention that aligns with risk management. It outlines steps such as asset inventory, protection of critical systems, secure configuration baselines, continuous monitoring, and incident response readiness. The document emphasizes balancing preventive controls (patch management, least privilege, network segmentation) with detective controls (logging, intrusion detection) and corrective processes (backup/restore, remediation plans). It also addresses the human element — policies, training, and governance — because technology alone can’t prevent user-enabled attacks. For students, NIST’s framework shows how theory maps to operational practices and helps translate security concepts into concrete administrative and technical measures an organization should implement.</td></tr>
+  </table>
+  <p><a href="project.html">Back to Webography</a></p>
+</body>
+</html>"""
+}
+
+# Write files
+for filename, content in files_content.items():
+    with open(os.path.join(project_path, filename), "w", encoding="utf-8") as f:
+        f.write(content)
+
+# Create a zip with all files
+zip_path = "/mnt/data/student_webography.zip"
+with zipfile.ZipFile(zip_path, 'w') as zipf:
+    for filename in files_content.keys():
+        zipf.write(os.path.join(project_path, filename), filename)
+
+zip_path
