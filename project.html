@@ -156,18 +156,4 @@
   </table>
   <p><a href="project.html">Back to Webography</a></p>
 </body>
-</html>"""
-}
-
-# Write files
-for filename, content in files_content.items():
-    with open(os.path.join(project_path, filename), "w", encoding="utf-8") as f:
-        f.write(content)
-
-# Create a zip with all files
-zip_path = "/mnt/data/student_webography.zip"
-with zipfile.ZipFile(zip_path, 'w') as zipf:
-    for filename in files_content.keys():
-        zipf.write(os.path.join(project_path, filename), filename)
-
-zip_path
+</html>
