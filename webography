@@ -1,7 +1,4 @@
-import os
-import zipfile
 
-# Define base path for new project
 project_path = "/mnt/data/student_webography"
 os.makedirs(project_path, exist_ok=True)
 
@@ -14,8 +11,8 @@ files_content = {
   <title>Webography Project - Malware</title>
 </head>
 <body>
-  <h1>Your Name</h1>
-  <p>CSIT 100<br>
+  <h1>Angela Pineda</h1>
+  <p>CSIT 100 07<br>
   Webography Project<br>
   Date: September 25, 2025</p>
 
