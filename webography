@@ -1,5 +1,4 @@
-!DOCTYPE html>
-<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,51 +69,6 @@
     <a href="https://montclair.instructure.com/" target="_blank">Canvas</a>
   </section>
 
-<!-- Biography -->
-    <h2 style="text-align:center; font-size:28px;">Biography</h2>
-    <ul style="font-size:18px;">
-        <li>Undergraduate student at Montclair State University</li>
-        <li>Major: Molecular Biology</li>
-        <li>Interests in science and healthcare field</li>
-    </ul>
-
-    <!-- Hobbies -->
-    <h2 style="text-align:center; font-size:28px;">Hobbies</h2>
-    <ul style="font-size:18px;">
-        <li>Practicing to be a better student</li>
-        <li>Hanging out with friends</li>
-        <li>Spending time with family and other loved ones outside</li>
-      <li>Studying at school</li>
-      </li>Watching TV shows and Movies Outside of School</li>
-    </ul>
-
-    <hr />
-
-    <!-- Table -->
-    <h2 style="text-align:center; font-size:28px;">Quick Info</h2>
-    <table align="center" border="1" width="800" style="background-color:white; color:black; text-align:center; font-size:18px;">
-        <tr>
-            <td><b>Email</b></td>
-            <td>pinedaa5@montclair.edu</td>
-        </tr>
-        <tr>
-            <td><b>Major</b></td>
-            <td>Molecular Biology</td>
-        </tr>
-        <tr>
-            <td><b>University</b></td>
-            <td>Montclair State University</td>
-        </tr>
-    </table>
-    <hr />
-</body>
-</html>
-project_path = "/mnt/data/student_webography"
-os.makedirs(project_path, exist_ok=True)
-# HTML content for each file
-files_content = {
-    "project.html": """<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Webography Project - Malware</title>
