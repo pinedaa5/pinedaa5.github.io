@@ -6,113 +6,148 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
-      line-height: 1.6;
+      margin: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
     }
     h1, h2 {
-      text-align: center;
+      margin: 10px 0;
     }
     .tab {
       overflow: hidden;
-      border-bottom: 2px solid #ccc;
-      margin-bottom: 20px;
+      background-color: #34495e;
     }
     .tab button {
-      background-color: #f1f1f1;
+      background-color: inherit;
       float: left;
       border: none;
       outline: none;
       cursor: pointer;
-      padding: 10px 20px;
+      padding: 14px 20px;
       transition: 0.3s;
       font-size: 16px;
+      color: white;
     }
     .tab button:hover {
-      background-color: #ddd;
+      background-color: #3f5873;
     }
     .tab button.active {
-      background-color: #ccc;
+      background-color: #1abc9c;
     }
     .tabcontent {
       display: none;
       padding: 20px;
-      border: 1px solid #ccc;
       border-top: none;
+      background: white;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #1abc9c;
+      color: white;
+      width: 20%;
     }
     a {
       color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .resources {
+      margin: 20px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
+<header>
   <h1>Angela Pineda</h1>
-  <p style="text-align:center;">
-    CSIT 100 07 <br>
-    Webography Project <br>
-    Date: September 25, 2025
-  </p>
-
+  <p>CSIT 100 07 | Webography Project<br>Date: September 25, 2025</p>
   <h2>Malware — Causes, Impacts, and Defenses</h2>
+</header>
+
+<div class="resources">
   <ul>
     <li><a href="paper.doc">Paper (Word Document)</a></li>
     <li><a href="presentation.ppt">Presentation (PowerPoint)</a></li>
   </ul>
+</div>
 
-  <!-- Tab Navigation -->
-  <div class="tab">
-    <button class="tablinks" onclick="openTab(event, 'Ransomware')" id="defaultOpen">Ransomware</button>
-    <button class="tablinks" onclick="openTab(event, 'Botnets')">Botnets</button>
-    <button class="tablinks" onclick="openTab(event, 'Detection')">Detection & Prevention</button>
-  </div>
+<!-- Tabs -->
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Ransomware')" id="defaultOpen">Ransomware</button>
+  <button class="tablinks" onclick="openTab(event, 'Botnets')">Botnets</button>
+  <button class="tablinks" onclick="openTab(event, 'Detection')">Detection & Prevention</button>
+</div>
 
-  <!-- Tab Content -->
-  <div id="Ransomware" class="tabcontent">
-    <h3>Ransomware</h3>
-    <p><strong>Abstract:</strong> Ransomware is malicious software that encrypts a victim’s files or systems and demands payment (a ransom) to restore access. Attackers often exploit phishing emails, insecure remote services, or outdated software. Once inside, ransomware spreads across networks, encrypting drives and backups. The impact includes technical disruption, financial loss, and reputational damage.</p>
-    <p><strong>URL:</strong> <a href="https://www.symantec.com/blogs/threat-intelligence/ransomware" target="_blank">Symantec Threat Intelligence</a></p>
-    <p><strong>Author:</strong> Broadcom / Symantec Threat Intelligence Blog</p>
-    <p>Modern ransomware evolves constantly — changing encryption methods, delivery tactics, and extortion methods (e.g., threatening to leak stolen data). Preventive measures include system patching, offline backups, network segmentation, and strong authentication. Employee training and incident response planning are critical for minimizing damage.</p>
-  </div>
+<!-- Ransomware -->
+<div id="Ransomware" class="tabcontent">
+  <h3>Ransomware</h3>
+  <table>
+    <tr><th>Abstract</th><td>Ransomware is malicious software that encrypts a victim’s files or systems and demands payment to restore access. It spreads via phishing, insecure services, or outdated software, often crippling entire networks. Impacts include data loss, downtime, financial costs, and reputational harm. Defenses include patching systems, offline backups, network segmentation, and phishing awareness training.</td></tr>
+    <tr><th>URL</th><td><a href="https://www.symantec.com/blogs/threat-intelligence/ransomware" target="_blank">Symantec Threat Intelligence</a></td></tr>
+    <tr><th>Author</th><td>Broadcom / Symantec Threat Intelligence Blog</td></tr>
+  </table>
+</div>
 
-  <div id="Botnets" class="tabcontent">
-    <h3>Botnets</h3>
-    <p><strong>Abstract:</strong> A botnet is a network of compromised computers controlled remotely by attackers (botmasters). Devices become infected through phishing, vulnerabilities, or malicious downloads. Botnets are used for large-scale attacks such as DDoS, spam campaigns, and spreading other malware.</p>
-    <p><strong>URLs:</strong> 
-      <a href="https://www.kaspersky.com/resource-center/threats/botnet" target="_blank">Kaspersky Research</a>, 
+<!-- Botnets -->
+<div id="Botnets" class="tabcontent">
+  <h3>Botnets</h3>
+  <table>
+    <tr><th>Abstract</th><td>A botnet is a network of compromised computers controlled remotely by attackers. Infected devices are used for DDoS attacks, spam, and malware distribution. Botnets evolve by hiding their command servers and using encryption, making detection harder. Prevention includes patching systems, changing default IoT passwords, disabling unnecessary services, and monitoring unusual network traffic.</td></tr>
+    <tr><th>URLs</th><td>
+      <a href="https://www.kaspersky.com/resource-center/threats/botnet" target="_blank">Kaspersky Research</a><br>
       <a href="https://www.malwarebytes.com/resources/glossary/what-is-a-botnet/" target="_blank">Malwarebytes Labs</a>
-    </p>
-    <p><strong>Authors:</strong> Kaspersky Security Research & Malwarebytes Labs</p>
-    <p>Botnets adapt by hiding control servers and using encrypted communications, making them resilient. They target businesses, home users, IoT devices, and servers. Defenses include patching, disabling unnecessary services, changing default passwords, and monitoring for unusual traffic. Law enforcement sometimes dismantles botnets by seizing command infrastructure.</p>
-  </div>
+    </td></tr>
+    <tr><th>Authors</th><td>Kaspersky Security Research & Malwarebytes Labs</td></tr>
+  </table>
+</div>
 
-  <div id="Detection" class="tabcontent">
-    <h3>Malware Detection & Prevention</h3>
-    <p><strong>Abstract:</strong> Malware detection and prevention combine technology, policies, and user education to reduce risks. Prevention includes patching, strong authentication, secure system configurations, and backups. Detection methods range from signature-based scanning to behavior-based analytics, anomaly detection, and threat intelligence integration.</p>
-    <p><strong>URLs:</strong> 
-      <a href="https://www.us-cert.cisa.gov/ncas/tips/ST18-271" target="_blank">CISA / US-CERT</a>, 
+<!-- Detection & Prevention -->
+<div id="Detection" class="tabcontent">
+  <h3>Malware Detection & Prevention</h3>
+  <table>
+    <tr><th>Abstract</th><td>Malware detection and prevention rely on layered defenses: strong authentication, software updates, least-privilege access, and backups. Detection has shifted from signature-based methods to behavior and anomaly-based analytics. Organizations also use endpoint detection, logging, and SIEM tools. NIST guidelines stress prevention, monitoring, and incident readiness as part of a holistic strategy.</td></tr>
+    <tr><th>URLs</th><td>
+      <a href="https://www.us-cert.cisa.gov/ncas/tips/ST18-271" target="_blank">CISA / US-CERT</a><br>
       <a href="https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.7621.pdf" target="_blank">NIST IR 7621</a>
-    </p>
-    <p><strong>Authors:</strong> CISA / US-CERT, NIST</p>
-    <p>NIST guidelines emphasize layered security: prevention, detection, and response. This includes asset inventory, least-privilege access, secure baselines, and user awareness training. Organizations must prepare with monitoring tools, logging, and incident response strategies to quickly recover from attacks.</p>
-  </div>
+    </td></tr>
+    <tr><th>Authors</th><td>CISA / US-CERT, NIST</td></tr>
+  </table>
+</div>
 
-  <script>
-    function openTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-    document.getElementById("defaultOpen").click();
-  </script>
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+document.getElementById("defaultOpen").click();
+</script>
 
 </body>
 </html>
