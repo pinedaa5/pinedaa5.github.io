@@ -14,6 +14,22 @@
     h1, h2, h3 {
       color: #0a0a0a;
     }
+    nav {
+      background-color: #004aad;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
     .container {
       background: #ffffff;
       padding: 30px;
@@ -49,6 +65,14 @@
   </style>
 </head>
 <body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="project.html">Webography</a>
+    <a href="subtopic1.html">Ransomware</a>
+    <a href="subtopic2.html">Botnets</a>
+    <a href="subtopic3.html">Malware Prevention</a>
+  </nav>
+
   <div class="container">
     <h1>Angela Pineda</h1>
     <p>
@@ -64,7 +88,7 @@
     <!-- Ransomware -->
     <div class="subtopic">
       <h3><a href="subtopic1.html">Ransomware</a></h3>
-      <p><strong>Abstract:</strong> Ransomware is a type of malicious software that encrypts a victim’s files or systems and demands payment to restore access. Attackers use phishing emails, insecure remote services, and unpatched systems to spread it. Modern ransomware often combines encryption with data leaks to pressure victims. Prevention includes software updates, offline backups, employee awareness, and rapid incident response planning.</p>
+      <p><strong>Abstract:</strong> Ransomware is a malicious program that encrypts data and demands payment for decryption. It spreads through phishing, unpatched systems, and malicious downloads. The best defense involves maintaining backups, applying security patches, and avoiding suspicious email attachments.</p>
       <p><strong>Sources:</strong></p>
       <ul>
         <li><a href="https://www.cisa.gov/ransomware" target="_blank">CISA – Ransomware Overview</a></li>
@@ -75,7 +99,7 @@
     <!-- Botnets -->
     <div class="subtopic">
       <h3><a href="subtopic2.html">Botnets</a></h3>
-      <p><strong>Abstract:</strong> A botnet is a network of compromised devices controlled remotely by cybercriminals. These devices are used for attacks such as DDoS, spam campaigns, and distributing other malware. Botnets often use peer-to-peer communication to remain active and difficult to dismantle. Defense involves keeping systems updated, changing default passwords, and monitoring for suspicious network activity.</p>
+      <p><strong>Abstract:</strong> Botnets are networks of compromised computers controlled remotely by cybercriminals. They are used for DDoS attacks, spam, and data theft. Prevention requires strong passwords, updated systems, and network monitoring for unusual traffic patterns.</p>
       <p><strong>Sources:</strong></p>
       <ul>
         <li><a href="https://www.kaspersky.com/resource-center/threats/botnet" target="_blank">Kaspersky – What is a Botnet?</a></li>
@@ -86,11 +110,11 @@
     <!-- Malware Detection & Prevention -->
     <div class="subtopic">
       <h3><a href="subtopic3.html">Malware Detection & Prevention</a></h3>
-      <p><strong>Abstract:</strong> Malware detection and prevention combine technology, policy, and user education to reduce risks. Traditional antivirus tools rely on known signatures, while modern systems use behavioral analytics and machine learning to detect anomalies. Organizations are encouraged to apply layered defenses including regular patching, endpoint monitoring, and user awareness training.</p>
+      <p><strong>Abstract:</strong> Malware detection involves identifying and neutralizing malicious software using antivirus, behavioral analytics, and AI. Prevention focuses on layered defense, user awareness, and consistent security updates.</p>
       <p><strong>Sources:</strong></p>
       <ul>
         <li><a href="https://www.us-cert.cisa.gov/ncas/tips/ST18-271" target="_blank">CISA – Malware Prevention Tips</a></li>
-        <li><a href="https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.7621.pdf" target="_blank">NIST – Malware Prevention and Response Guidelines</a></li>
+        <li><a href="https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.7621.pdf" target="_blank">NIST – Malware Guidelines</a></li>
       </ul>
     </div>
 
