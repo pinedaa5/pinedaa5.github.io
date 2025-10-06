@@ -7,34 +7,51 @@
     body {
       font-family: "Times New Roman", serif;
       line-height: 1.6;
-      margin: 40px;
+      margin: 0;
       background-color: #f5f6f8;
       color: #222;
     }
-    h1, h2, h3 {
-      color: #0a0a0a;
+    header {
+      background-color: #004aad;
+      color: white;
+      padding: 15px;
+      text-align: center;
     }
     nav {
-      background-color: #004aad;
-      padding: 12px;
-      border-radius: 8px;
-      margin-bottom: 25px;
-      text-align: center;
+      background-color: #002b6e;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
     }
     nav a {
       color: white;
-      margin: 0 15px;
       text-decoration: none;
+      padding: 14px 20px;
       font-weight: bold;
+      display: inline-block;
     }
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover, nav a.active {
+      background-color: #004aad;
+      border-radius: 8px;
     }
     .container {
+      max-width: 900px;
+      margin: 30px auto;
       background: #ffffff;
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .tabcontent {
+      display: none;
+    }
+    .tabcontent.active {
+      display: block;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
     ul {
       list-style-type: none;
@@ -43,96 +60,98 @@
     li {
       margin: 12px 0;
     }
-    a {
+    a.source {
+      color: #004aad;
+      text-decoration: none;
+    }
+    a.source:hover {
+      text-decoration: underline;
+    }
+    .downloads {
+      margin-top: 25px;
+    }
+    .downloads a {
+      display: inline-block;
+      margin-right: 15px;
       color: #004aad;
       font-weight: bold;
       text-decoration: none;
     }
-    a:hover {
+    .downloads a:hover {
       text-decoration: underline;
     }
-    .subtopic {
-      background-color: #f8f9fb;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      border-left: 5px solid #004aad;
-    }
-    .back-link {
-      margin-top: 40px;
-      display: block;
-    }
   </style>
+  <script>
+    function openTab(tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).style.display = "block";
+      event.currentTarget.classList.add("active");
+    }
+    window.onload = function() {
+      document.getElementById("defaultOpen").click();
+    }
+  </script>
 </head>
 <body>
+  <header>
+    <h1>Angela Pineda</h1>
+    <p><strong>CSIT 100</strong> | Webography Project | November 25, 2025</p>
+  </header>
+
   <nav>
-    <a href="index.html">Home</a>
-    <a href="project.html">Webography</a>
-    <a href="subtopic1.html">Ransomware</a>
-    <a href="subtopic2.html">Botnets</a>
-    <a href="subtopic3.html">Malware Prevention</a>
+    <a class="tablink" id="defaultOpen" onclick="openTab('Ransomware')">Ransomware</a>
+    <a class="tablink" onclick="openTab('Botnets')">Botnets</a>
+    <a class="tablink" onclick="openTab('Detection')">Malware Detection & Prevention</a>
   </nav>
 
   <div class="container">
-    <h1>Angela Pineda</h1>
-    <p>
-      <strong>CSIT 100</strong><br>
-      Webography Project<br>
-      Date: September 25, 2025
-    </p>
-
-    <h2>Malware — Causes, Impacts, and Defenses</h2>
-
-    <h3>Subtopics Overview</h3>
 
     <!-- Ransomware -->
-    <div class="subtopic">
-      <h3><a href="subtopic1.html">Ransomware</a></h3>
-      <p><strong>Abstract:</strong> Ransomware is a malicious program that encrypts data and demands payment for decryption. It spreads through phishing, unpatched systems, and malicious downloads. The best defense involves maintaining backups, applying security patches, and avoiding suspicious email attachments.</p>
+    <div id="Ransomware" class="tabcontent">
+      <h2>Ransomware</h2>
+      <p><strong>Abstract:</strong> Ransomware is malicious software that locks or encrypts files and demands payment for decryption. It often spreads via phishing emails, infected links, or system vulnerabilities. Attackers threaten to leak sensitive data if ransom demands are ignored. Prevention relies on backups, regular system updates, and employee awareness.</p>
       <p><strong>Sources:</strong></p>
       <ul>
-        <li><a href="https://www.cisa.gov/ransomware" target="_blank">CISA – Ransomware Overview</a></li>
-        <li><a href="https://www.symantec.com/blogs/threat-intelligence/ransomware" target="_blank">Symantec Threat Intelligence Blog</a></li>
+        <li><a href="https://www.cisa.gov/ransomware" class="source" target="_blank">CISA – Ransomware Overview</a></li>
+        <li><a href="https://www.symantec.com/blogs/threat-intelligence/ransomware" class="source" target="_blank">Symantec – Threat Intelligence Blog</a></li>
       </ul>
     </div>
 
     <!-- Botnets -->
-    <div class="subtopic">
-      <h3><a href="subtopic2.html">Botnets</a></h3>
-      <p><strong>Abstract:</strong> Botnets are networks of compromised computers controlled remotely by cybercriminals. They are used for DDoS attacks, spam, and data theft. Prevention requires strong passwords, updated systems, and network monitoring for unusual traffic patterns.</p>
+    <div id="Botnets" class="tabcontent">
+      <h2>Botnets</h2>
+      <p><strong>Abstract:</strong> A botnet is a collection of compromised devices remotely controlled by hackers to perform coordinated attacks like DDoS, spam campaigns, or data theft. They communicate via command-and-control servers or peer-to-peer networks, making them hard to dismantle. Preventing botnets involves changing default passwords, updating software, and using network monitoring tools.</p>
       <p><strong>Sources:</strong></p>
       <ul>
-        <li><a href="https://www.kaspersky.com/resource-center/threats/botnet" target="_blank">Kaspersky – What is a Botnet?</a></li>
-        <li><a href="https://www.malwarebytes.com/resources/glossary/what-is-a-botnet/" target="_blank">Malwarebytes Labs – Botnet Explanation</a></li>
+        <li><a href="https://www.kaspersky.com/resource-center/threats/botnet" class="source" target="_blank">Kaspersky – What is a Botnet?</a></li>
+        <li><a href="https://www.malwarebytes.com/resources/glossary/what-is-a-botnet/" class="source" target="_blank">Malwarebytes Labs – Botnet Explanation</a></li>
       </ul>
     </div>
 
     <!-- Malware Detection & Prevention -->
-    <div class="subtopic">
-      <h3><a href="subtopic3.html">Malware Detection & Prevention</a></h3>
-      <p><strong>Abstract:</strong> Malware detection involves identifying and neutralizing malicious software using antivirus, behavioral analytics, and AI. Prevention focuses on layered defense, user awareness, and consistent security updates.</p>
+    <div id="Detection" class="tabcontent">
+      <h2>Malware Detection & Prevention</h2>
+      <p><strong>Abstract:</strong> Modern malware detection combines traditional signature-based tools with machine learning and behavioral analytics. Preventive strategies include layered defense, consistent patching, and user education. Organizations should maintain regular audits and backups to ensure resilience against cyberattacks.</p>
       <p><strong>Sources:</strong></p>
       <ul>
-        <li><a href="https://www.us-cert.cisa.gov/ncas/tips/ST18-271" target="_blank">CISA – Malware Prevention Tips</a></li>
-        <li><a href="https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.7621.pdf" target="_blank">NIST – Malware Guidelines</a></li>
+        <li><a href="https://www.us-cert.cisa.gov/ncas/tips/ST18-271" class="source" target="_blank">CISA – Malware Prevention Tips</a></li>
+        <li><a href="https://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.7621.pdf" class="source" target="_blank">NIST – Malware Guidelines</a></li>
       </ul>
     </div>
 
-    <h3>Other Files</h3>
-    <ul>
-      <li>
-        <a href="https://github.com/YourUserName/student-website/raw/main/paper.doc" target="_blank">
-          📘 Download Research Paper (Word Document)
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/YourUserName/student-website/raw/main/Presentation.pptx" target="_blank">
-          📊 View Presentation (PowerPoint)
-        </a>
-      </li>
-    </ul>
-
-    <a class="back-link" href="index.html">⬅️ Back to Home Page</a>
-  </div>
+    <!-- Downloads -->
+    <div class="downloads">
+      <h3>Other Files</h3>
+      <a href="https://pinedaa5.github.io/paper.doc" target="_blank">📘 Research Paper (Word Document)</a>
+      <a href="https://pinedaa5.github.io/Presentation.pptx" target="_blank">📊 Presentation (PowerPoint)</a>
+    </div>  
 </body>
 </html>
