@@ -11,19 +11,15 @@
       color: #222;
       line-height: 1.6;
     }
-
     h1, h2 {
       color: #004aad;
       text-align: center;
     }
-
-    /* Tabs container */
     .tab {
       overflow: hidden;
       background-color: #004aad;
       border-radius: 10px 10px 0 0;
     }
-
     .tab button {
       background-color: inherit;
       float: left;
@@ -36,16 +32,12 @@
       font-size: 16px;
       width: 33.33%;
     }
-
     .tab button:hover {
       background-color: #003580;
     }
-
     .tab button.active {
       background-color: #002b66;
     }
-
-    /* Tab content */
     .tabcontent {
       display: none;
       background-color: white;
@@ -55,26 +47,21 @@
       border-radius: 0 0 10px 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
     .sources ul {
       list-style-type: none;
       padding: 0;
     }
-
     .sources li {
       margin: 6px 0;
     }
-
     a {
       color: #004aad;
       text-decoration: none;
       font-weight: bold;
     }
-
     a:hover {
       text-decoration: underline;
     }
-
     .section {
       margin-top: 30px;
       padding: 20px;
@@ -87,7 +74,7 @@
 <body>
 
   <h1>Angela Pineda</h1>
-  <p style="text-align:center;"><strong>CSIT 100 | September 25, 2025</strong></p>
+  <p style="text-align:center;"><strong>CSIT 100 | November 25, 2025</strong></p>
   <h2>Malware — Causes, Impacts, and Defenses</h2>
 
   <!-- Tabs -->
@@ -97,10 +84,10 @@
     <button class="tablinks" onclick="openTab(event, 'Detection')">Malware Detection</button>
   </div>
 
-  <!-- Tab content -->
+  <!-- Tab 1 -->
   <div id="Ransomware" class="tabcontent">
     <h3>Ransomware</h3>
-    <p><strong>Abstract:</strong> Ransomware is malicious software that encrypts user data and demands payment to restore access. It spreads through phishing emails, unsafe downloads, or network vulnerabilities. Prevention includes regular backups, software updates, and cybersecurity training to avoid data loss and extortion.</p>
+    <p><strong>Abstract:</strong> Ransomware is a malicious software that encrypts user files and demands payment to restore access. It spreads via phishing emails, unsecured remote connections, and unpatched vulnerabilities. Prevention involves regular backups, employee training, and maintaining up-to-date systems.</p>
     <div class="sources">
       <p><strong>Sources:</strong></p>
       <ul>
@@ -110,9 +97,10 @@
     </div>
   </div>
 
+  <!-- Tab 2 -->
   <div id="Botnets" class="tabcontent">
     <h3>Botnets</h3>
-    <p><strong>Abstract:</strong> Botnets are networks of infected computers controlled by cybercriminals to perform coordinated attacks such as DDoS, spam, or credential theft. These networks can consist of thousands of devices, making them powerful tools for large-scale attacks. Preventive steps include using strong passwords, updating devices, and monitoring network traffic.</p>
+    <p><strong>Abstract:</strong> Botnets are networks of infected computers controlled remotely by attackers. They are used for large-scale attacks such as DDoS, spam campaigns, and malware distribution. Prevention includes securing IoT devices, using strong passwords, and monitoring unusual traffic.</p>
     <div class="sources">
       <p><strong>Sources:</strong></p>
       <ul>
@@ -122,9 +110,10 @@
     </div>
   </div>
 
+  <!-- Tab 3 -->
   <div id="Detection" class="tabcontent">
     <h3>Malware Detection & Prevention</h3>
-    <p><strong>Abstract:</strong> Malware detection involves identifying harmful activity using antivirus software, behavior-based analysis, and artificial intelligence. Prevention includes maintaining strong system defenses, applying security patches, and educating users about safe browsing habits.</p>
+    <p><strong>Abstract:</strong> Modern malware detection combines traditional signature-based methods with AI-driven behavior analysis. Prevention includes patch management, user education, and layered defense systems to minimize exposure to new cyber threats.</p>
     <div class="sources">
       <p><strong>Sources:</strong></p>
       <ul>
@@ -134,19 +123,18 @@
     </div>
   </div>
 
-  <!-- Research Paper and Presentation Links -->
+  <!-- Additional Files -->
   <div class="section">
     <h3>Additional Files</h3>
     <ul>
-      <li><a href="https://github.com/pinedaa5/webography-files/raw/main/paper.docx" target="_blank">📘 Research Paper (Word Document)</a></li>
-      <li><a href="https://github.com/pinedaa5/webography-files/raw/main/Presentation.pptx" target="_blank">📊 Presentation (PowerPoint)</a></li>
+      <li><a href="https://github.com/pinedaa5/pinedaa5.github.io/raw/main/paper.docx" target="_blank">📘 Research Paper (Word Document)</a></li>
+      <li><a href="https://github.com/pinedaa5/pinedaa5.github.io/raw/main/presentation.pptx" target="_blank">📊 Presentation (PowerPoint)</a></li>
     </ul>
   </div>
 
   <p style="text-align:center;"><a href="index.html">⬅️ Back to Home Page</a></p>
 
   <script>
-    // Tab switching logic
     function openTab(evt, tabName) {
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tabcontent");
@@ -160,8 +148,6 @@
       document.getElementById(tabName).style.display = "block";
       evt.currentTarget.className += " active";
     }
-
-    // Automatically open the first tab on page load
     document.getElementById("defaultOpen").click();
   </script>
 
