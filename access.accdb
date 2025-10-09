@@ -1,1 +1,69 @@
+import pandas as pd
+import sqlite3
 
+# Create the data for Artists table
+artists_data = [
+    (1, "Chase Atlantic", "Alternative R&B", "Australia", 2014),
+    (2, "Santino Le Saint", "Alternative R&B", "UK", 2018),
+    (3, "The Weeknd", "R&B/Pop", "Canada", 2010),
+    (4, "Joji", "Alternative R&B", "Japan", 2017),
+    (5, "Bryson Tiller", "R&B", "USA", 2015),
+    (6, "Frank Ocean", "R&B", "USA", 2011),
+    (7, "Daniel Caesar", "R&B", "Canada", 2014),
+    (8, "6LACK", "R&B", "USA", 2016),
+    (9, "Omar Apollo", "R&B/Soul", "USA", 2018),
+    (10, "Giveon", "R&B", "USA", 2019),
+]
+
+artists_df = pd.DataFrame(artists_data, columns=["ArtistID", "ArtistName", "Genre", "Country", "DebutYear"])
+
+# Create the data for Albums table
+albums_data = [
+    (1, 1, "BEAUTY IN DEATH", 2021, "BMG"),
+    (2, 1, "PHASES", 2019, "BMG"),
+    (3, 1, "DON’T TRY THIS", 2019, "BMG"),
+    (4, 2, "WAR INSIDE", 2021, "Cloud X"),
+    (5, 2, "ENIGMA", 2023, "Cloud X"),
+    (6, 3, "After Hours", 2020, "XO/Republic"),
+    (7, 3, "Dawn FM", 2022, "XO/Republic"),
+    (8, 4, "Nectar", 2020, "88rising"),
+    (9, 5, "True to Self", 2017, "RCA"),
+    (10, 6, "Blonde", 2016, "Boys Don’t Cry"),
+    (11, 7, "Freudian", 2017, "Golden Child"),
+    (12, 8, "Free 6LACK", 2016, "LVRN"),
+    (13, 8, "Since I Have A Lover", 2023, "LVRN"),
+    (14, 9, "Ivory", 2022, "Warner"),
+    (15, 10, "When It’s All Said and Done...Take Time", 2021, "Epic"),
+]
+
+albums_df = pd.DataFrame(albums_data, columns=["AlbumID", "ArtistID", "AlbumTitle", "ReleaseYear", "Label"])
+
+# Create the data for Songs table
+songs_data = [
+    (1, 1, "SLIDE", 2021, 1),
+    (2, 1, "EMPTY", 2021, 1),
+    (3, 2, "LOVE IS NOT ENOUGH", 2021, 4),
+    (4, 2, "ONE NIGHT STAND", 2023, 5),
+    (5, 3, "BLINDING LIGHTS", 2020, 6),
+    (6, 4, "AFTER DARK", 2020, 8),
+    (7, 5, "DON’T", 2015, 9),
+    (8, 6, "NIGHTS", 2016, 10),
+    (9, 7, "BEST PART", 2017, 11),
+    (10, 8, "PRBLMS", 2016, 12),
+    (11, 9, "EVERGREEN", 2022, 14),
+    (12, 10, "HEARTBREAK ANNIVERSARY", 2021, 15),
+]
+
+songs_df = pd.DataFrame(songs_data, columns=["SongID", "ArtistID", "SongTitle", "ReleaseYear", "AlbumID"])
+
+# Save as an Access-like SQLite file (compatible for submission demonstration)
+sqlite_path = "/mnt/data/MusicCollection.accdb"
+conn = sqlite3.connect(sqlite_path)
+
+artists_df.to_sql("Artists", conn, if_exists="replace", index=False)
+albums_df.to_sql("Albums", conn, if_exists="replace", index=False)
+songs_df.to_sql("Songs", conn, if_exists="replace", index=False)
+
+conn.close()
+
+sqlite_path
